@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <SDL.h>
 #include "src/basics.c"
-#include "src/settings.c"
+#include "src/init.h"
 
 int main(int argc, char**argv)
 {

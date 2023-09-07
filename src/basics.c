@@ -49,13 +49,24 @@ bool Input()
     return false; // check if the player has quit the game. if not return false.
 }
 
+void DrawRect(SDL_Renderer *renderer, int x, int y, int w, int h)
+{
+    SDL_FRect rect;
+    rect.w = w; rect.h = h;
+    int xPos = ((WINDOW_WIDTH/2)+x)-(rect.w/2); // i have no idea why but using the other constants doesn't work if i have a settings.h file
+    int yPos = ((WINDOW_HEIGHT/2)+y)-(rect.h/2); // i have no idea why but using the other constants doesn't work if i have a settings.h file
+    rect.x = xPos; rect.y = yPos;
+    SDL_RenderFillRectF(renderer, &rect);
+}
+
 void Draw(SDL_Renderer *renderer)
 {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_FRect rect;
-    rect.w = 100; rect.h = 100;
-    rect.x = 320-(rect.w/2); rect.y = 240-(rect.h/2);
-    SDL_RenderFillRectF(renderer, &rect);
+    // Draw Player block
+    SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
+    DrawRect(renderer, 0, 120, 65, 20);
+    // Draw ball thing
+    // Draw the cubes that break
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 }
 
