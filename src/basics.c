@@ -33,7 +33,7 @@ bool InitRenderer(SDL_Window *window, SDL_Renderer *renderer)
     return true;
 }
 
-bool input()
+bool Input()
 {
     SDL_Event event;
     while(SDL_PollEvent(&event))
@@ -46,7 +46,17 @@ bool input()
         }
     }
 
-    return false;
+    return false; // check if the player has quit the game. if not return false.
+}
+
+void Draw(SDL_Renderer *renderer)
+{
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_FRect rect;
+    rect.w = 100; rect.h = 100;
+    rect.x = 320-(rect.w/2); rect.y = 240-(rect.h/2);
+    SDL_RenderFillRectF(renderer, &rect);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 }
 
 void CleanQuit(SDL_Window *window, SDL_Renderer *renderer)

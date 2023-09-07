@@ -28,10 +28,12 @@ int main(int argc, char**argv)
     }
     while (running)
     {
-        if(input())
+        if(Input())
         {
             running = false;
         }
+        SDL_RenderClear(renderer);
+        Draw(renderer);
         SDL_RenderPresent(renderer);
         SDL_Delay(FRAMERATE);
     }
