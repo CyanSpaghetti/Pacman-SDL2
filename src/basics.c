@@ -53,8 +53,8 @@ void DrawRect(SDL_Renderer *renderer, int x, int y, int w, int h)
 {
     SDL_FRect rect;
     rect.w = w; rect.h = h;
-    int xPos = ((WINDOW_WIDTH/2)+x)-(rect.w/2); // i have no idea why but using the other constants doesn't work if i have a settings.h file
-    int yPos = ((WINDOW_HEIGHT/2)+y)-(rect.h/2); // i have no idea why but using the other constants doesn't work if i have a settings.h file
+    int xPos = ((WINDOW_WIDTH/2)+x)-(rect.w/2); // we use the init.h file for this
+    int yPos = ((WINDOW_HEIGHT/2)+y)-(rect.h/2); // we use the init.h file for this
     rect.x = xPos; rect.y = yPos;
     SDL_RenderFillRectF(renderer, &rect);
 }
